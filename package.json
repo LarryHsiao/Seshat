@@ -1,0 +1,33 @@
+{
+  "name": "seshat",
+  "version": "0.1.0",
+  "description": "MCP server for Outline — the scribe goddess at your terminal.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "seshat": "dist/index.js"
+  },
+  "main": "dist/index.js",
+  "files": [
+    "dist",
+    "config.example.json",
+    ".env.example"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
