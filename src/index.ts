@@ -11,6 +11,7 @@ import {
   listCollections,
   listCollectionsInputShape,
 } from "./tools/collections.js";
+import { listDocuments, listDocumentsInputShape } from "./tools/list.js";
 
 function errorResult(err: unknown) {
   const message =
@@ -80,6 +81,19 @@ async function main() {
     async (input) => {
       try {
         return await listCollections(client, input);
+      } catch (err) {
+        return errorResult(err);
+      }
+    },
+  );
+
+  server.tool(
+    "list_documents",
+    "List documents inside an Outline collection.",
+    listDocumentsInputShape,
+    async (input) => {
+      try {
+        return await listDocuments(client, input);
       } catch (err) {
         return errorResult(err);
       }
