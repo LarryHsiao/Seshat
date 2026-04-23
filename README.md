@@ -7,6 +7,14 @@ list, and create Outline documents.
 
 ## Install
 
+From npm — no clone required:
+
+```bash
+npx -y @larryhsiao/seshat
+```
+
+Or clone and build from source:
+
 ```bash
 git clone https://github.com/LarryHsiao/Seshat.git
 cd Seshat
@@ -37,6 +45,17 @@ The API token must still come from `OUTLINE_API_TOKEN`.
 Generate a token under `Settings → API Tokens` in Outline.
 
 ## Register with Claude Code
+
+Via npm (recommended):
+
+```bash
+claude mcp add -s user seshat \
+  -e OUTLINE_API_TOKEN=<token> \
+  -e OUTLINE_BASE_URL=https://outline.example.com \
+  -- npx -y @larryhsiao/seshat
+```
+
+Or pointing at a local build:
 
 ```bash
 claude mcp add -s user seshat \

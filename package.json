@@ -1,5 +1,5 @@
 {
-  "name": "seshat",
+  "name": "@larryhsiao/seshat",
   "version": "0.1.0",
   "description": "MCP server for Outline — the scribe goddess at your terminal.",
   "license": "MIT",
@@ -13,11 +13,28 @@
     "config.example.json",
     ".env.example"
   ],
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "outline",
+    "getoutline",
+    "claude",
+    "claude-code"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LarryHsiao/Seshat.git"
+  },
+  "homepage": "https://github.com/LarryHsiao/Seshat#readme",
+  "bugs": {
+    "url": "https://github.com/LarryHsiao/Seshat/issues"
+  },
   "scripts": {
     "build": "tsc",
     "start": "node dist/index.js",
     "dev": "tsc --watch",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run clean && npm run build"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.4",
