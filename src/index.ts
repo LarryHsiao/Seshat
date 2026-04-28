@@ -7,11 +7,16 @@ import { OutlineClient, OutlineError } from "./outline.js";
 import { searchDocuments, searchInputShape } from "./tools/search.js";
 import { getDocument, getInputShape } from "./tools/get.js";
 import { createDocument, createInputShape } from "./tools/create.js";
+import { updateDocument, updateInputShape } from "./tools/update.js";
 import {
   listCollections,
   listCollectionsInputShape,
 } from "./tools/collections.js";
 import { listDocuments, listDocumentsInputShape } from "./tools/list.js";
+import {
+  getCollectionTree,
+  getCollectionTreeInputShape,
+} from "./tools/tree.js";
 
 function errorResult(err: unknown) {
   const message =
@@ -75,6 +80,19 @@ async function main() {
   );
 
   server.tool(
+    "update_document",
+    "Update an Outline document's title, body, or publish state.",
+    updateInputShape,
+    async (input) => {
+      try {
+        return await updateDocument(client, input);
+      } catch (err) {
+        return errorResult(err);
+      }
+    },
+  );
+
+  server.tool(
     "list_collections",
     "List Outline collections with their IDs.",
     listCollectionsInputShape,
@@ -94,6 +112,19 @@ async function main() {
     async (input) => {
       try {
         return await listDocuments(client, input);
+      } catch (err) {
+        return errorResult(err);
+      }
+    },
+  );
+
+  server.tool(
+    "get_collection_tree",
+    "Fetch the nested document hierarchy of a collection.",
+    getCollectionTreeInputShape,
+    async (input) => {
+      try {
+        return await getCollectionTree(client, input);
       } catch (err) {
         return errorResult(err);
       }

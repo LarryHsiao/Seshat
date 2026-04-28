@@ -3,7 +3,7 @@
 MCP server for [Outline](https://www.getoutline.com/) — the scribe goddess at your terminal.
 
 Gives MCP clients (Claude Code, Cursor, etc.) the ability to search, read,
-list, and create Outline documents.
+list, create, and update Outline documents.
 
 ## Install
 
@@ -74,7 +74,9 @@ Drop `-s user` to scope it to the current project instead.
 | `get_document` | Fetch a single doc's markdown by UUID or URL slug. |
 | `list_collections` | List collections with their IDs. |
 | `list_documents` | List docs inside a collection (`collectionId`, `limit`, `offset`). |
+| `get_collection_tree` | Fetch the nested doc hierarchy of a collection; optional `depth` cap. |
 | `create_document` | Create a doc in a collection; optional `parentDocumentId`, `publish`. |
+| `update_document` | Update a doc's `title`, `text`, or `publish` state; `append: true` appends instead of replacing. |
 
 ## Develop
 
