@@ -17,6 +17,10 @@ import {
   getCollectionTree,
   getCollectionTreeInputShape,
 } from "./tools/tree.js";
+import {
+  uploadAttachment,
+  uploadAttachmentInputShape,
+} from "./tools/attachment.js";
 
 function errorResult(err: unknown) {
   const message =
@@ -125,6 +129,19 @@ async function main() {
     async (input) => {
       try {
         return await getCollectionTree(client, input);
+      } catch (err) {
+        return errorResult(err);
+      }
+    },
+  );
+
+  server.tool(
+    "upload_attachment",
+    "Upload a local file to Outline; returns the URL and a markdown snippet.",
+    uploadAttachmentInputShape,
+    async (input) => {
+      try {
+        return await uploadAttachment(client, input, config.baseUrl);
       } catch (err) {
         return errorResult(err);
       }

@@ -14,6 +14,10 @@ export class OutlineError extends Error {
 export class OutlineClient {
   constructor(private readonly config: Config) {}
 
+  get token(): string {
+    return this.config.apiToken;
+  }
+
   async call<T = unknown>(
     endpoint: string,
     payload: Record<string, unknown> = {},

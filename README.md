@@ -75,6 +75,7 @@ Drop `-s user` to scope it to the current project instead.
 | `list_collections` | List collections with their IDs. |
 | `list_documents` | List docs inside a collection (`collectionId`, `limit`, `offset`). |
 | `get_collection_tree` | Fetch the nested doc hierarchy of a collection; optional `depth` cap. |
+| `upload_attachment` | Upload a local file to Outline; returns the attachment URL and a markdown snippet ready to embed. |
 | `create_document` | Create a doc in a collection; optional `parentDocumentId`, `publish`. |
 | `update_document` | Update a doc's `title`, `text`, or `publish` state; `append: true` appends instead of replacing. |
 

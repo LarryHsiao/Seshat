@@ -9,6 +9,7 @@ All notable changes to Seshat are documented here. Format follows
 ### Added
 - `update_document` — update a doc's title, body, or publish state, with optional `append` to extend the body instead of replacing it.
 - `get_collection_tree` — fetch a collection's nested document hierarchy in one call, with an optional `depth` cap.
+- `upload_attachment` — upload a local file to Outline (presign + multipart) and receive the attachment URL plus a ready-to-embed markdown snippet.
 
 ## [0.1.0] - 2026-04-23
 
